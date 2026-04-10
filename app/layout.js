@@ -22,7 +22,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning className={`${inter.variable} ${playfair.variable} antialiased`} >
-      <body className="min-h-screen text-foreground p-3 md:p-6 lg:p-10 xl:p-[3%] bg-[url('https://picsum.photos/seed/grassgreen/2400/1600')] bg-cover bg-fixed bg-center">
+      <body className="min-h-screen text-foreground p-3 md:p-6 lg:p-10 xl:p-[3%]">
         {/* Main Floating Container */}
         <div className="relative max-w-[1400px] w-full mx-auto bg-surface rounded-[3rem] shadow-2xl overflow-hidden flex flex-col min-h-[90vh] border border-white/50">
           <Navbar />

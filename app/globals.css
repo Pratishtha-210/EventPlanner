@@ -5,25 +5,21 @@
   --color-secondary: #F38D9A; /* Coral pink to match exact reference */
   --color-tertiary: #647B45; /* Olive green overlay */
   
-  --color-surface: #FBF9F6; /* Cream website background */
+  --color-surface: #FFF0F5; /* Soft blush pink website background */
   --color-text-dark: #222222; /* Charcoal for text */
-  --color-text-light: #FBF9F6;
+  --color-text-light: #FFF0F5;
   
   --font-sans: "Inter", Arial, sans-serif;
   --font-serif: "Playfair Display", serif;
 }
 
 :root {
-  --background: #FBF9F6;
+  --background: #FFB6C1; /* Elegant deep pink outside background */
   --foreground: #222222;
 }
 
 body {
-  /* Using a grassy texture background for the body */
-  background-image: url('https://images.unsplash.com/photo-1558908354-9469d51c7ce5?auto=format&fit=crop&q=80&w=2000');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+  background: var(--background);
   color: var(--foreground);
 }
 
