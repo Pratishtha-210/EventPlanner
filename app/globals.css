@@ -2,7 +2,7 @@
 
 @theme inline {
   --color-primary: #E9A530; /* Sunflower yellow from logo */
-  --color-secondary: #F0808F; /* Warmer, softer precise coral pink */
+  --color-secondary: #F38D9A; /* Coral pink to match exact reference */
   --color-tertiary: #647B45; /* Olive green overlay */
   
   --color-surface: #FBF9F6; /* Cream website background */
@@ -28,16 +28,14 @@ body {
 }
 
 /* Custom hiding scrollbar for sleekness */
-::-webkit-scrollbar {
-  width: 8px;
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
-::-webkit-scrollbar-track {
-  background: transparent; 
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
 }
-::-webkit-scrollbar-thumb {
-  background: #E9A530; 
-  border-radius: 4px;
-}
+
 
 /* Utilities for blob/wavy shapes */
 .blob-shape-1 {

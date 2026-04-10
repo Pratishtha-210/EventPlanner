@@ -2,7 +2,7 @@
 
 import { Play, ArrowRight, Music2, Sun } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 // Reliable mockup videos from coverr (Working URLs)
 const MOCK_VIDEOS = [
@@ -21,6 +21,22 @@ const Sticker = ({ emoji, className }) => (
 
 export default function Home() {
   const [hoverBox, setHoverBox] = useState(null);
+  const scrollRef = useRef(null);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    const scrollInterval = setInterval(() => {
+      if (el.scrollLeft >= el.scrollWidth - el.clientWidth) {
+        el.scrollLeft = 0; // Reset smoothly
+      } else {
+        el.scrollLeft += 1;
+      }
+    }, 20); // ms per pixel
+
+    return () => clearInterval(scrollInterval);
+  }, []);
 
   // Helper component for Video on Hover Cards
   const EventHoverCard = ({ title, desc, tagColor, imgSrc, vidSrc, idx }) => (
@@ -163,7 +179,12 @@ export default function Home() {
         </div>
 
         {/* Scrollable Horizontal wrapper for responsive cards */}
-        <div className="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory hide-scrollbar justify-start md:justify-center">
+        <div 
+           ref={scrollRef} 
+           className="flex overflow-x-auto gap-6 pb-8 hide-scrollbar justify-start items-center group/scroll"
+           style={{ scrollBehavior: "auto" }}
+           onMouseEnter={(e) => { e.currentTarget.style.scrollBehavior = "auto"; }}
+        >
           <EventHoverCard 
             title="Garden Session"
             desc="An afternoon of live acoustic and sunlight."
