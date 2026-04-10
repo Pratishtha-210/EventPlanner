@@ -5,16 +5,16 @@
   --color-secondary: #F38D9A; /* Coral pink to match exact reference */
   --color-tertiary: #647B45; /* Olive green overlay */
   
-  --color-surface: #FFF0F5; /* Soft blush pink website background */
+  --color-surface: #FBF9F6; /* Exact fieldtime cream website background */
   --color-text-dark: #222222; /* Charcoal for text */
-  --color-text-light: #FFF0F5;
+  --color-text-light: #FBF9F6;
   
   --font-sans: "Inter", Arial, sans-serif;
   --font-serif: "Playfair Display", serif;
 }
 
 :root {
-  --background: #FFB6C1; /* Elegant deep pink outside background */
+  --background: transparent;
   --foreground: #222222;
 }
 
