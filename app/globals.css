@@ -1,27 +1,48 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
-
 @theme inline {
-  --color-primary: #6366F1;
+  --color-primary: #E9A530; /* Sunflower yellow from logo */
+  --color-secondary: #F38D9A; /* Coral pink */
+  --color-tertiary: #647B45; /* Olive green overlay */
+  
+  --color-surface: #FBF9F6; /* Cream website background */
+  --color-text-dark: #222222; /* Charcoal for text */
+  --color-text-light: #FBF9F6;
+  
   --font-sans: "Inter", Arial, sans-serif;
+  --font-serif: "Playfair Display", serif;
 }
 
 :root {
-  --background: #f9fafb;
-  --foreground: #111827;
-  --surface: #ffffff;
-  --surface-border: #e5e7eb;
-}
-
-.dark {
-  --background: #0B0F19;
-  --foreground: #ffffff;
-  --surface: #111827;
-  --surface-border: #1F2937;
+  --background: #FBF9F6;
+  --foreground: #222222;
 }
 
 body {
-  background: var(--background);
+  /* Using a grassy texture background for the body */
+  background-image: url('https://images.unsplash.com/photo-1558908354-9469d51c7ce5?auto=format&fit=crop&q=80&w=2000');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   color: var(--foreground);
+}
+
+/* Custom hiding scrollbar for sleekness */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent; 
+}
+::-webkit-scrollbar-thumb {
+  background: #E9A530; 
+  border-radius: 4px;
+}
+
+/* Utilities for blob/wavy shapes */
+.blob-shape-1 {
+  border-radius: 53% 47% 76% 24% / 37% 55% 45% 63%;
+}
+.blob-shape-2 {
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
 }
