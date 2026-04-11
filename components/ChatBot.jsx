@@ -2,11 +2,12 @@
 
 import { useState } from "react";
 import { MessageCircle, X, Send } from "lucide-react";
+import { events } from "../data/events";
 
 export function ChatBot() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { text: "Hi there! 👋 Welcome to fieldtime. Looking for a picnic spot?", isBot: true }
+    { text: "Hi there! 👋 I am Event-O. What kind of event are you looking for?", isBot: true }
   ]);
   const [input, setInput] = useState("");
 
@@ -17,22 +18,39 @@ export function ChatBot() {
     setMessages([...messages, { text: input, isBot: false }]);
     setInput("");
 
-    // Mock bot reply
+    // Event-O search logic using cached memory (events array)
     setTimeout(() => {
-      setMessages(prev => [...prev, { text: "That sounds lovely! I can help you find a community gathering just for that. 🌻", isBot: true }]);
-    }, 1000);
+      const q = input.toLowerCase();
+      let replyText = "I couldn't find an exact match. Try asking about categories like 'Tech', 'Music', or 'Art'!";
+      
+      if (q.includes("hi") || q.includes("hello")) {
+        replyText = "Hello again! I am Event-O. Let me know what you want to discover today.";
+      } else {
+        const matches = events.filter(e => 
+          e.title.toLowerCase().includes(q) || 
+          e.category.toLowerCase().includes(q) || 
+          e.tags.some(t => t.toLowerCase().includes(q))
+        );
+        
+        if (matches.length > 0) {
+          replyText = `I found ${matches.length} event(s) for "${input}". Check out: "${matches[0].title}" happening on ${matches[0].date}.`;
+        }
+      }
+
+      setMessages(prev => [...prev, { text: replyText, isBot: true }]);
+    }, 800);
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-[100] flex flex-col items-end">
+    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[100] flex flex-col items-end">
       
       {/* Chat Window */}
       {isOpen && (
-        <div className="w-80 bg-surface border-2 border-primary/20 rounded-2xl shadow-xl shadow-primary/10 overflow-hidden mb-4 flex flex-col transform transition-all">
+        <div className="w-[calc(100vw-2rem)] sm:w-80 bg-surface border-2 border-primary/20 rounded-2xl shadow-xl shadow-primary/10 overflow-hidden mb-4 flex flex-col transform transition-all">
           <div className="bg-primary text-white p-4 flex items-center justify-between font-serif">
             <span className="text-lg font-bold flex items-center gap-2">
-              <SunIcon className="w-5 h-5 text-yellow-200" />
-              Sunny (Bot)
+              <SunIcon className="w-5 h-5 text-white/90" />
+              Event-O
             </span>
             <button onClick={() => setIsOpen(false)} className="hover:bg-white/20 p-1 rounded-full"><X className="w-4 h-4" /></button>
           </div>

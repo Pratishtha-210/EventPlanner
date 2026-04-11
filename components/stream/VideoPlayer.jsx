@@ -6,11 +6,11 @@ export function VideoPlayer({ event }) {
       {/* 16:9 Aspect Ratio Container for Responsive Video */}
       <div className="relative w-full pb-[56.25%] bg-black flex items-center justify-center overflow-hidden">
         
-        {/* Placeholder Thumbnail mimicking an iframe/player */}
-        <img 
-          src={event.thumbnail} 
-          alt={event.title} 
-          className="absolute inset-0 w-full h-full object-cover opacity-80"
+        {/* Real auto-playing Video mimicking a stream */}
+        <video 
+          src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4" 
+          autoPlay loop muted playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-90"
         />
         
         {/* Fake play UI or overlay elements */}
@@ -28,9 +28,9 @@ export function VideoPlayer({ event }) {
         </div>
 
         {/* Center Play Button for interaction feel */}
-        <button className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-auto group/btn">
-          <div className="bg-primary/90 rounded-full p-4 transform group-hover/btn:scale-110 transition-transform shadow-lg shadow-primary/20 backdrop-blur-md">
-            <PlayCircle className="w-10 h-10 text-white" />
+        <button className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300 pointer-events-auto bg-black/20 group/btn">
+          <div className="bg-primary/90 rounded-full p-4 transform group-hover/btn:scale-110 transition-transform shadow-2xl shadow-primary/40 backdrop-blur-md">
+            <PlayCircle className="w-12 h-12 text-white" />
           </div>
         </button>
 

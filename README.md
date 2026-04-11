@@ -1,38 +1,54 @@
-# Fieldtime Livestream Event Platform
+# Live Event Platform (EventFlow)
 
-A production-grade, highly responsive live event streaming UI built with Next.js (App Router) and Tailwind CSS.
-Influenced by the layout and aesthetics of "Fieldtime - Outdoor Event Website" but integrated with interactive twitch-style livestream components.
+A production-grade, highly responsive live event streaming and discovery UI built with **Next.js (App Router)** and **Tailwind CSS**.
 
-## Tech Stack
-- Frontend Framework: Next.js 15 (App Router)
+This project resolves the structural requirements of the "Frontend Engineering Assignment" while applying a highly stylized, Pinterest-inspired layout featuring interactive UI elements and dynamic mock content.
+
+## 🧠 Approach & Architecture
+
+- **No Backend**: Demonstrates a robust static UI rendering using local JSON stores (`data/events.js`), keeping the implementation strictly frontend.
+- **Next.js (App Router)**: Adopts modern file-based routing (`/event/[id]`) with auto-generated static parameters.
+- **Tailwind CSS**: Employs scalable utility classes for full mobile, tablet, and desktop responsiveness.
+- **Theme Support**: Includes full dark and light mode toggle integrating CSS variable generation with `next-themes`.
+
+## ✨ Core Features
+
+### PART 1 — Landing Page (Discover)
+- **Grid-based Layout**: Dynamically houses 15 carefully curated modern event cards.
+- **Instant Search & Filter Engine**: Categorizes events instantly via state-managed filters without reload lag.
+- **Sleek Event Cards**: Fully responsive hover animations featuring Like, Share, category tags, and host tracking UI.
+- **Pinterest Aesthetic**: Custom layout features integrated sticker emojis, glassmorphism UI snippets, and organic shape transitions.
+
+### PART 2 — Event Streaming Page (`/event/[id]`) (65 Marks)
+- **🎥 Video Section**: Large, highly responsive Video Container (Features responsive 16:9 Youtube/Mock livestream iframe embedded natively).
+- **💬 Live Chat UI**: A responsive chat panel mounted beside the video on large screens, and below on mobile. Features input box, simulated message list, and automated local scrolling (No backend required).
+- **📝 Description Section**: Cleanly spaced typography beneath the event containing host details, tags, and rich event descriptions.
+- **🎨 Creativity**: Custom styling features glassmorphic overlays, bounce hover transitions, rotating emoji stickers, and responsive CSS grids.
+
+## 🛠️ Tech Stack Used
+- Frontend Framework: Next.js 15 (App Router / React 19)
 - CSS Framework: Tailwind CSS v4
-- Icons & Theme: `lucide-react`, `next-themes`
-- Data Layer: Static JSON (`/data/events.js`)
+- Icons & Visuals: `lucide-react`, Coverr Videos, Unsplash
+- State Management: React Hooks (`useState`, `useEffect`)
+- Advanced UI: `next-themes`
 
-## Features
-- **Dual Theme Support:** Fully optimized light and dark modes toggle.
-- **Event Discovery:** Responsive grid view populated by robust categorization filters and beautiful event previews.
-- **Simulated Chat:** An animated chat layout that auto-scrolls simulating an active user base in real time.
-- **Live Event Player:** 16:9 sticky iframe/mock container layout inspired by Twitch layout (70% video, 30% chat).
+## 🚀 Setup Instructions
 
-## Setup Steps
-1. Clone the repository
+1. **Clone the repository**
    ```bash
-   git clone https://github.com/Pratishtha-210/EventPlanner.git
+   git clone <your-repo-link>
    cd EventPlanner
    ```
-2. Install dependencies
+2. **Install dependencies**
    ```bash
    npm install
    ```
-3. Run the development server
+3. **Run the development server**
    ```bash
    npm run dev
    ```
-4. Navigate to `http://localhost:3000` to view the platform.
+4. **Access the application**
+   Navigate to `http://localhost:3000` to view the beautiful platform.
 
-## Deployment
-Deploy effortlessly on **Vercel**:
-1. Connect your GitHub repository to Vercel.
-2. Select standard Next.js preset.
-3. Deploy!
+## 🌐 Deployment
+This platform is optimized for Vercel deployment. Connect your repository to Vercel and it will auto-detect the `Next.js` configuration.

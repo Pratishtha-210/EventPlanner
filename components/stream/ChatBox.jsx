@@ -5,11 +5,11 @@ import { SendHorizontal, Smile } from "lucide-react";
 import { ChatMessage } from "./ChatMessage";
 
 const INITIAL_MESSAGES = [
-  { id: 1, user: "TrailBlazer99", text: "Whoa the quality of this stream is insane!", time: "10:01" },
-  { id: 2, user: "MountainGoat", text: "Has anyone seen Bear yet?", time: "10:02" },
-  { id: 3, user: "SurvivalistFan", text: "He said he'd start showing the water trick at 10:15", time: "10:02" },
-  { id: 4, user: "EchoOutdoors", text: "Audio is a bit low, or is it just me?", time: "10:03" },
-  { id: 5, user: "CampFireCozy", text: "Audio is fine here, try refreshing.", time: "10:04" },
+  { id: 1, user: "UX_Alex", text: "Whoa the quality of this stream is insane! ✨", time: "10:01" },
+  { id: 2, user: "StartupSarah", text: "Is the speaker going to touch on AI workflows?", time: "10:02" },
+  { id: 3, user: "DevNinja", text: "They said Q&A session starts at 10:15", time: "10:02" },
+  { id: 4, user: "DesignBot", text: "Audio is a bit low, or is it just me?", time: "10:03" },
+  { id: 5, user: "ProductPete", text: "Audio is fine here, try refreshing. 🎧", time: "10:04" },
 ];
 
 export function ChatBox() {
@@ -28,8 +28,8 @@ export function ChatBox() {
   // Simulate incoming messages occasionally
   useEffect(() => {
     const interval = setInterval(() => {
-      const mockUsers = ["HikerPro", "NatureLover", "Camper24", "ExplorerMike", "RiverRafting"];
-      const mockTexts = ["Looks beautiful out there!", "Wow! 😍", "Is that a bear track?", "Following this strictly.", "+1", "Can't wait to go there next week!"];
+      const mockUsers = ["TechMax", "DesignLover", "FounderX", "CryptoChris", "PixelArt"];
+      const mockTexts = ["Looks beautiful out there!", "Wow! 😍", "Great insights.", "Taking notes 📝", "+1", "Can't wait to try this out!"];
       
       const randomUser = mockUsers[Math.floor(Math.random() * mockUsers.length)];
       const randomText = mockTexts[Math.floor(Math.random() * mockTexts.length)];

@@ -1,21 +1,35 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-primary: #E9A530; /* Sunflower yellow from logo */
+  --color-primary: #FFB6C1; /* Light pink instead of yellow */
   --color-secondary: #F38D9A; /* Coral pink to match exact reference */
   --color-tertiary: #647B45; /* Olive green overlay */
   
-  --color-surface: #FBF9F6; /* Exact fieldtime cream website background */
-  --color-text-dark: #222222; /* Charcoal for text */
+  --color-surface: var(--surface); /* Responsive surface */
+  --color-text-dark: var(--text-dark); /* Responsive text-dark */
   --color-text-light: #FBF9F6;
   
   --font-sans: "Inter", Arial, sans-serif;
   --font-serif: "Playfair Display", serif;
+  
+  --animate-marquee: marquee 30s linear infinite;
+  --animate-fade-in-up: fadeInUp 0.3s ease-out forwards;
 }
 
 :root {
   --background: transparent;
   --foreground: #222222;
+  --surface: #FBF9F6;
+  --surface-border: rgba(0,0,0,0.1);
+  --text-dark: #222222;
+}
+
+.dark {
+  --background: transparent;
+  --foreground: #EDEDED;
+  --surface: #1E1E1E;
+  --surface-border: rgba(255,255,255,0.1);
+  --text-dark: #EDEDED;
 }
 
 body {
@@ -24,6 +38,22 @@ body {
 }
 
 /* Custom hiding scrollbar for sleekness */
+  /* Smooth animations for Chat UX Improvement */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.3s ease-out forwards;
+  }
+
 .hide-scrollbar {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
@@ -39,4 +69,9 @@ body {
 }
 .blob-shape-2 {
   border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
